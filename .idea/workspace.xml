@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project_on_JS_Part_1.(rev 5 - final).iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/backendp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories/incomes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_expense.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_income&amp;expense.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_income.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_expense.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_income&amp;expense.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_income.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/SecretService-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/incomes-expenses-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/main-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/income&amp;expense.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/incomes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/chart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="package.json" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2fDbHYmSRdXz9ZAsGZF36zywvHz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "step3",
+    "last_opened_file_path": "C:/Users/tutep/WS_Projects/HWs/Module_10/project_js",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\templates" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\Project_on_JS_Part_1\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\src" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\templates" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontenddp" />
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\src\components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="" />
+      <created>1713338508393</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713338508393</updated>
+      <workItem from="1713338509406" duration="3876000" />
+      <workItem from="1713604122440" duration="21053000" />
+      <workItem from="1713691099212" duration="1486000" />
+      <workItem from="1713812020929" duration="596000" />
+      <workItem from="1713954682156" duration="16886000" />
+      <workItem from="1714022058817" duration="9114000" />
+      <workItem from="1714155612943" duration="608000" />
+      <workItem from="1714232319884" duration="12765000" />
+      <workItem from="1714588424096" duration="794000" />
+      <workItem from="1714723487796" duration="667000" />
+      <workItem from="1714813424303" duration="7106000" />
+      <workItem from="1715013367928" duration="6122000" />
+      <workItem from="1715112319077" duration="6034000" />
+      <workItem from="1715198687913" duration="5860000" />
+      <workItem from="1715360940370" duration="4780000" />
+      <workItem from="1717241064390" duration="2018000" />
+      <workItem from="1717260616532" duration="87000" />
+      <workItem from="1717454123614" duration="1932000" />
+      <workItem from="1717836060742" duration="4713000" />
+      <workItem from="1718452247560" duration="4688000" />
+      <workItem from="1718648170405" duration="3124000" />
+      <workItem from="1718688540966" duration="14227000" />
+      <workItem from="1718783555558" duration="1801000" />
+      <workItem from="1718876189439" duration="2817000" />
+      <workItem from="1719225206558" duration="11428000" />
+      <workItem from="1719300410300" duration="5843000" />
+      <workItem from="1719837289664" duration="9000" />
+      <workItem from="1719837392001" duration="3351000" />
+      <workItem from="1719849565614" duration="10116000" />
+      <workItem from="1719907532789" duration="170000" />
+      <workItem from="1719907945348" duration="21000" />
+      <workItem from="1719908223188" duration="456000" />
+      <workItem from="1719908692917" duration="539000" />
+      <workItem from="1719909309150" duration="254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
