@@ -5,41 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/static/images/check2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/static/images/delete.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/static/images/edit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/static/images/x.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-expenses.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-income-and-expenses.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-income.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-expenses.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/expenses.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/income.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/createModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/styles/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/create-expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/create-income-and-expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/create-income.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-income-and-expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-income.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/income.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/old_modal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +107,7 @@
       <workItem from="1719909309150" duration="891000" />
       <workItem from="1719999188005" duration="5986000" />
       <workItem from="1720724327982" duration="7083000" />
-      <workItem from="1721036250697" duration="3802000" />
+      <workItem from="1721036250697" duration="4672000" />
     </task>
     <servers />
   </component>
