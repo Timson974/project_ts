@@ -1,87 +1,15 @@
 <section class="col-sm-8 col-md-9 col-xxl-10 pt-5 ps-sm-5">
     <h1 class="mt-sm-5 ms-3 mb-5 fs-1">Главная</h1>
-    <div class="ms-3 mb-5">
-        <div class="d-flex w-100 align-items-center flex-wrap gap-1">
-            <button class="btn btn-outline-secondary">Сегодня</button>
-            <button class="btn btn-outline-secondary">Неделя</button>
-            <button class="btn btn-outline-secondary">Месяц</button>
-            <button class="btn btn-outline-secondary">Год</button>
-            <button class="btn btn-outline-secondary">Все</button>
-            <form class="d-flex flex-wrap align-items-center gap-1 justify-content-around">
-                <button class="btn btn-outline-secondary" type="submit" disabled>Интервал</button>
-                <div class="d-flex flex-nowrap align-items-center ">
-                    <div class="d-flex flex-nowrap align-items-center ">
-                        <input type="date" name="start-date-input" id="start-date-input"
-                               class="visually-hidden start_date_input">
-                        с
-                        <button type="button" class="btn btn-link">Дата</button>
-                    </div>
-                    <div class="d-flex flex-nowrap align-items-center ">
-                        <input type="date" name="finish-date-input" id="finish-date-input"
-                               class="visually-hidden finish_date_input">
-                        по
-                        <button type="button" class="btn btn-link">Дата</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="ms-3 mb-5" id="filter-content">
     </div>
-    <div class="d-flex flex-wrap w-100 justify-content-around">
-        <div class="d-flex flex-column align-items-center mb-5">
-            <h2 class=" diagram_title mb-4">Доходы</h2>
-            <div class="d-flex align-items-center flex-wrap mb-5">
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols red "></div>
-                    <div class="diagram_symbols_text">Red</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols orange"></div>
-                    <div class="diagram_symbols_text">Orange</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols yellow"></div>
-                    <div class="diagram_symbols_text">Yellow</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols green"></div>
-                    <div class="diagram_symbols_text">Green</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols blue"></div>
-                    <div class="diagram_symbols_text">Blue</div>
-                </div>
-            </div>
-            <div class="diagram_img">
-                <img src="images/diagram1.png" alt="Диаграмма" >
-            </div>
+    <div class="d-flex flex-wrap w-100 justify-content-around" id="wrap-charts">
+        <div class="d-flex flex-column align-items-center mb-5" id="wrap-chart-income">
+            <h2 class="diagram_title mb-4">Доходы</h2>
+            <div class="w-100" id="block-chart-income"><canvas id="chart-income"></canvas></div>
         </div>
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center mb-5" id="wrap-chart-expense">
             <h2 class=" diagram_title mb-4">Расходы</h2>
-            <div class="d-flex align-items-center flex-wrap mb-5">
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols red "></div>
-                    <div class="diagram_symbols_text">Red</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols orange"></div>
-                    <div class="diagram_symbols_text">Orange</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols yellow"></div>
-                    <div class="diagram_symbols_text">Yellow</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols green"></div>
-                    <div class="diagram_symbols_text">Green</div>
-                </div>
-                <div class="d-flex flex-nowrap align-items-center">
-                    <div class="diagram_symbols blue"></div>
-                    <div class="diagram_symbols_text">Blue</div>
-                </div>
-            </div>
-            <div class="diagram_img">
-                <img src="images/diagram2.png" alt="Диаграмма" >
-            </div>
+            <div class="w-100" id="block-chart-expense"><canvas id="chart-expense"></canvas></div>
         </div>
     </div>
 </section>

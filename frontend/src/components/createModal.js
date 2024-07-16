@@ -1,29 +1,37 @@
+import {CustomHttp} from "../services/custom-http.js";
+import config from "../../config/config.js";
+
 export class CreateModal {
-    constructor(page) {
+    constructor(page, idDeleting, callback) {
+
         this.page = page;
-        this.bodyElement = null;
-
+        this.modalElement = null;
+        this.idDeleting = idDeleting;
+        this.callback = callback;
         this.init()
-
     }
 
     init() {
-        this.bodyElement = document.getElementsByTagName('body')[0];
-        const oldModalElement = document.getElementById('staticBackdrop');
-        if (oldModalElement) {
-            this.bodyElement.removeChild(oldModalElement)
+        this.modalElement = document.getElementById('staticBackdrop');
+        console.log(this.modalElement); // Check if it is null
+        if (this.modalElement) {
+            this.modalElement.replaceChildren();
+            this.addModal(this.page);
+        } else {
+            console.error('Modal element not found');
         }
+    }
+
+
+    init() {
+        this.modalElement = document.getElementById('staticBackdrop');
+        this.modalElement.replaceChildren();
         this.addModal(this.page)
     }
     addModal (page) {
-        if (page === 'income' || page === 'expenses' || page === 'income-and-expenses') {
-            const modalElement =  document.createElement('div');
-            modalElement.className = "modal fade";
-            modalElement.setAttribute('id', 'staticBackdrop');
-            modalElement.setAttribute('data-bs-backdrop', 'static');
-            modalElement.setAttribute('data-bs-keyboard', 'false');
-            modalElement.setAttribute('daria-labelledby', 'staticBackdropLabel');
-            modalElement.setAttribute('tabindex', '-1');
+
+        const that = this;
+        if (page === 'income' || page === 'expense' || page === 'income-and-expenses') {
 
             const modalDialogElement = document.createElement('div');
             modalDialogElement.className = "modal-dialog modal-dialog-centered";
@@ -38,7 +46,7 @@ export class CreateModal {
             modalTitleElement.className = "fs-4 text-center mb-4";
             if (page === 'income') {
                 modalTitleElement.innerText = 'Вы действительно хотите удалить категорию? Связанные доходы будут удалены навсегда.';
-            } else if (page === 'expenses') {
+            } else if (page === 'expense') {
                 modalTitleElement.innerText = 'Вы действительно хотите удалить категорию?';
             } else {
                 modalTitleElement.innerText = 'Вы действительно хотите удалить операцию?';
@@ -50,7 +58,31 @@ export class CreateModal {
             const successButtonElement = document.createElement('button');
             successButtonElement.className = "btn btn-success";
             successButtonElement.setAttribute('type', 'button');
+            successButtonElement.setAttribute('data-bs-dismiss', 'modal');
             successButtonElement.innerText = 'Да, удалить';
+            successButtonElement.addEventListener('click', async function () {
+                let queryString;
+                if (page === 'income') {
+                    queryString = config.host + '/categories/income/';
+                } else if (page === 'expense') {
+                    queryString = config.host + '/categories/expense/';
+                } else {
+                    queryString = config.host + '/operations/';
+                }
+                try {
+                    const results = await CustomHttp.request(queryString + that.idDeleting, 'DELETE');
+                    if (results) {
+                        if (results.error) {
+                            throw new Error(results.error);
+                        }
+                        that.callback()
+                    } else {
+                        throw new Error('Элемент не удален');
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            })
 
             const canselButtonElement = document.createElement('button');
             canselButtonElement.className = "btn btn-danger";
@@ -68,13 +100,10 @@ export class CreateModal {
 
             modalDialogElement.appendChild(modalContentElement);
 
-            modalElement.appendChild(modalDialogElement);
+            this.modalElement.appendChild(modalDialogElement);
 
-            this.bodyElement.appendChild(modalElement)
         } else {
             return null
         }
-
     }
-
 }

@@ -5,41 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Project_on_JS_Part_1.(rev 5 - final).iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/backendp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/incomes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_expense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_income&amp;expense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_income.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_expense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_income&amp;expense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_income.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/expenses.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/SecretService-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/incomes-expenses-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/main-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/income&amp;expense.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/incomes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/images/check2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/images/delete.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/images/edit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/images/x.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-expenses.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-income-and-expenses.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-income.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-expenses.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/expenses.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/income.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/createModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/styles/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/styles/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/create-expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/create-income-and-expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/create-income.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-income-and-expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/edit-income.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/expenses.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/income.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/old_modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +51,8 @@
       <list>
         <option value="CSS File" />
         <option value="package.json" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -64,25 +64,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "step3",
-    "last_opened_file_path": "C:/Users/tutep/WS_Projects/HWs/Module_10/project_js",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;step3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tutep/WS_Projects/HWs/Module_10/project_js/frontend/static/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\static\images" />
       <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js" />
       <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\templates" />
       <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\Project_on_JS_Part_1\images" />
@@ -136,7 +137,10 @@
       <workItem from="1719907945348" duration="21000" />
       <workItem from="1719908223188" duration="456000" />
       <workItem from="1719908692917" duration="539000" />
-      <workItem from="1719909309150" duration="254000" />
+      <workItem from="1719909309150" duration="891000" />
+      <workItem from="1719999188005" duration="5986000" />
+      <workItem from="1720724327982" duration="7083000" />
+      <workItem from="1721036250697" duration="3802000" />
     </task>
     <servers />
   </component>
