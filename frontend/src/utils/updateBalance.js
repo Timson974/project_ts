@@ -11,8 +11,8 @@ export class UpdateBalance {
                 }
                 return result.balance
             }
-        } catch (e) {
-            return console.log(e)
+        } catch (error) {
+            return console.log(error)
         }
     }
 }

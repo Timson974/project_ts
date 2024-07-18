@@ -84,14 +84,14 @@ export class CreateModal {
                 }
             })
 
-            const canselButtonElement = document.createElement('button');
-            canselButtonElement.className = "btn btn-danger";
-            canselButtonElement.setAttribute('type', 'button');
-            canselButtonElement.setAttribute('data-bs-dismiss', 'modal');
-            canselButtonElement.innerText = 'Не удалять';
+            const cancelButtonElement = document.createElement('button');
+            cancelButtonElement.className = "btn btn-danger";
+            cancelButtonElement.setAttribute('type', 'button');
+            cancelButtonElement.setAttribute('data-bs-dismiss', 'modal');
+            cancelButtonElement.innerText = 'Не удалять';
 
             wrapButtonElement.appendChild(successButtonElement);
-            wrapButtonElement.appendChild(canselButtonElement);
+            wrapButtonElement.appendChild(cancelButtonElement);
 
             modalBodyElement.appendChild(modalTitleElement);
             modalBodyElement.appendChild(wrapButtonElement);

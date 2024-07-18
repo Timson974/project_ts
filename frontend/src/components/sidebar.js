@@ -44,8 +44,8 @@ export class Sidebar {
                 this.drawSidebar();
 
             }
-        } catch (e) {
-            return console.log(e)
+        } catch (error) {
+            return console.log(error)
         }
     }
 
@@ -178,7 +178,7 @@ export class Sidebar {
         })
     }
 
-    canselSaveBalance() {
+    cancelSaveBalance() {
         this.parentBalanceElement.removeAttribute('style')
         this.editBalanceInputElement.remove();
         this.saveBalanceButtonElement.remove();

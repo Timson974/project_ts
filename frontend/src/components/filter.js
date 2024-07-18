@@ -103,8 +103,8 @@ export class Filter {
             } else {
                 throw new Error('На данный период данных нет');
             }
-        } catch (e) {
-            console.log(e)
+        } catch (error) {
+            console.log(error)
         }
     }
 

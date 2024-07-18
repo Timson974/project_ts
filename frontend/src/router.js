@@ -205,12 +205,12 @@ export class Router {
                 }
             },
             {
-                route: '#/expense',
+                route: '#/expenses',
                 title: 'Расходы',
                 template: 'templates/layout.html',
                 content: 'templates/categories.html',
                 load: () => {
-                    new Categories('expense');
+                    new Categories('expenses');
                 }
             },
             {
@@ -223,21 +223,21 @@ export class Router {
                 }
             },
             {
-                route: '#/create-expense',
+                route: '#/create-expenses',
                 title: 'Создать категорию расходов',
                 template: 'templates/layout.html',
                 content: 'templates/edit-create-category.html',
                 load: () => {
-                    new EditCreateCategoryCategory('expense');
+                    new EditCreateCategoryCategory('expenses');
                 }
             },
             {
-                route: '#/edit-expense',
+                route: '#/edit-expenses',
                 title: 'Редактировать категорию расходов',
                 template: 'templates/layout.html',
                 content: 'templates/edit-create-category.html',
                 load: () => {
-                    new EditCreateCategoryCategory('expense');
+                    new EditCreateCategoryCategory('expenses');
                 }
             },
             {

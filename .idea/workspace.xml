@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/createModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/createModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/updateBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/updateBalance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +119,8 @@
       <workItem from="1719909309150" duration="891000" />
       <workItem from="1719999188005" duration="5986000" />
       <workItem from="1720724327982" duration="7083000" />
-      <workItem from="1721036250697" duration="4672000" />
+      <workItem from="1721036250697" duration="6367000" />
+      <workItem from="1721245665364" duration="14402000" />
     </task>
     <servers />
   </component>
