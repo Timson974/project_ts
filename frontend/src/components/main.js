@@ -1,75 +1,72 @@
-import {CreateModal} from "../components/createModal.js";
 import Chart from 'chart.js/auto';
 import { Filter } from "./filter.js";
 
 export class Main {
     constructor() {
-        this.wrapChartsElement = null;
-        this.messageEmptyData = null;
-        this.incomeData = null;
-        this.expenseData = null;
-        this.data = null;
-        this.wrapCanvasIncomeElement = null;
-        this.wrapCanvasExpenseElement = null;
-        this.init();
+        this.chartArea = null;
+        this.noDataMessage = null;
+        this.incomeDataset = null;
+        this.expenseDataset = null;
+        this.chartWrapperIncome = null;
+        this.chartWrapperExpense = null;
+        this.setup();
     }
 
-    init() {
-        this.messageEmptyData = document.getElementById('messageEmptyData');
-        this.wrapChartsElement = document.getElementById('wrap-charts');
-        this.wrapCanvasIncomeElement = document.getElementById('wrap-chart-income');
-        this.wrapCanvasExpenseElement = document.getElementById('wrap-chart-expense');
-        new Filter(this.drawCharts.bind(this));
+    setup() {
+        this.noDataMessage = document.getElementById('messageEmptyData');
+        this.chartArea = document.getElementById('wrap-charts');
+        this.chartWrapperIncome = document.getElementById('wrap-chart-income');
+        this.chartWrapperExpense = document.getElementById('wrap-chart-expense');
+        new Filter(this.updateCharts.bind(this));
     }
 
-    filterData(data, type) {
-        return data.filter(obj => obj.type === type).reduce((acc, obj) => {
-            if (acc.findIndex((el) => el.category === obj.category) !== -1) {
-                acc.find((item) => item.category === obj.category).amount += obj.amount;
+    categorizeData(data, categoryType) {
+        return data.filter(item => item.type === categoryType).reduce((accumulator, current) => {
+            let categoryIndex = accumulator.findIndex(item => item.category === current.category);
+            if (categoryIndex !== -1) {
+                accumulator[categoryIndex].amount += current.amount;
             } else {
-                acc.push({
-                    category: obj.category,
-                    amount: obj.amount
+                accumulator.push({
+                    category: current.category,
+                    amount: current.amount
                 });
             }
-            return acc;
+            return accumulator;
         }, []);
     }
 
-    drawCharts(data) {
+    updateCharts(data) {
         if (data && data.length > 0) {
-            this.incomeData = this.filterData(data, 'income');
-            this.expenseData = this.filterData(data, 'expense');
-            this.wrapCanvasIncomeElement.classList.remove('visually-hidden');
-            this.wrapCanvasExpenseElement.classList.remove('visually-hidden');
-            this.closeMessageEmptyData();
-            this.drawChart('chart-income');
-            this.drawChart('chart-expense');
+            this.incomeDataset = this.categorizeData(data, 'income');
+            this.expenseDataset = this.categorizeData(data, 'expense');
+            this.chartWrapperIncome.classList.remove('visually-hidden');
+            this.chartWrapperExpense.classList.remove('visually-hidden');
+            this.hideNoDataMessage();
+            this.plotChart('chart-income', this.incomeDataset);
+            this.plotChart('chart-expense', this.expenseDataset);
         } else {
-            this.wrapCanvasIncomeElement.classList.add('visually-hidden');
-            this.wrapCanvasExpenseElement.classList.add('visually-hidden');
-            this.showMessageEmptyData();
+            this.chartWrapperIncome.classList.add('visually-hidden');
+            this.chartWrapperExpense.classList.add('visually-hidden');
+            this.displayNoDataMessage();
         }
     }
 
-    drawChart(idElement) {
-        const wrapChartElement = idElement === 'chart-income' ? document.getElementById('block-chart-income') : document.getElementById('block-chart-expense');
-        const canvasElement = document.createElement('canvas');
-        canvasElement.setAttribute('id', idElement === 'chart-income' ? "chart-income" : "chart-expense");
-        wrapChartElement.replaceChild(canvasElement, wrapChartElement.firstChild);
+    plotChart(chartId, dataset) {
+        const chartContainer = document.getElementById(chartId === 'chart-income' ? 'block-chart-income' : 'block-chart-expense');
+        const canvas = document.createElement('canvas');
+        canvas.id = chartId;
+        chartContainer.replaceChild(canvas, chartContainer.firstChild);
 
-        let data = {
-            labels: idElement === 'chart-income' ? this.incomeData.map(obj => obj.category) : this.expenseData.map(obj => obj.category),
+        const chartData = {
+            labels: dataset.map(item => item.category),
             datasets: [{
-                data: idElement === 'chart-income' ? this.incomeData.map(obj => obj.amount) : this.expenseData.map(obj => obj.amount),
-                backgroundColor: [], // You may need to define colors for each category
-                hoverOffset: 4
+                data: dataset.map(item => item.amount)
             }]
         };
 
-        new Chart(document.getElementById(idElement), {
+        new Chart(canvas, {
             type: 'pie',
-            data: data,
+            data: chartData,
             options: {
                 responsive: true,
                 plugins: {
@@ -81,20 +78,20 @@ export class Main {
         });
     }
 
-    showMessageEmptyData() {
-        if (this.messageEmptyData) {
-            this.messageEmptyData.remove();
+    displayNoDataMessage() {
+        if (this.noDataMessage) {
+            this.noDataMessage.remove();
         }
-        this.messageEmptyData = document.createElement('div');
-        this.messageEmptyData.classList = 'fs-5 text-danger position-absolute bg-white p-2 ';
-        this.messageEmptyData.setAttribute('id', 'messageEmptyData');
-        this.messageEmptyData.innerText = 'На выбранный период нет данных';
-        this.wrapChartsElement.insertBefore(this.messageEmptyData, this.wrapChartsElement.firstChild);
+        this.noDataMessage = document.createElement('div');
+        this.noDataMessage.className = 'fs-5 text-danger position-absolute bg-white p-2';
+        this.noDataMessage.id = 'messageEmptyData';
+        this.noDataMessage.innerText = 'На выбранный период нет данных';
+        this.chartArea.insertBefore(this.noDataMessage, this.chartArea.firstChild);
     }
 
-    closeMessageEmptyData() {
-        if (this.messageEmptyData) {
-            this.messageEmptyData.remove();
+    hideNoDataMessage() {
+        if (this.noDataMessage) {
+            this.noDataMessage.remove();
         }
     }
 }

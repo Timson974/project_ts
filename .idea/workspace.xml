@@ -8,17 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/categories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/createModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/createModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/updateBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/updateBalance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/income-and-expenses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/add-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/add-options.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,23 +37,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;step3&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tutep/WS_Projects/HWs/Module_10/project_js/frontend/static/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "step3",
+    "last_opened_file_path": "C:/Users/tutep/WS_Projects/Lumincoin-finance-js-master",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tutep\WS_Projects\HWs\Module_10\project_js\frontend\static\images" />
@@ -120,7 +114,9 @@
       <workItem from="1719999188005" duration="5986000" />
       <workItem from="1720724327982" duration="7083000" />
       <workItem from="1721036250697" duration="6367000" />
-      <workItem from="1721245665364" duration="14402000" />
+      <workItem from="1721245665364" duration="15129000" />
+      <workItem from="1721412098517" duration="3129000" />
+      <workItem from="1721587486928" duration="11266000" />
     </task>
     <servers />
   </component>
