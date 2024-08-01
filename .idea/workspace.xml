@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/add-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/add-options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/config/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/createModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/createModal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-create-category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/filter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/form.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/custom-http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/custom-http.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/add-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/add-options.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/updateBalance.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/updateBalance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/url-manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/url-manager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +56,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "step3",
-    "last_opened_file_path": "C:/Users/tutep/WS_Projects/Lumincoin-finance-js-master",
+    "last_opened_file_path": "C:/Users/tutep/WS_Projects/HWs/Module_11/project_js_on_ts",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\tutep\\WS_Projects\\HWs\\Module_11\\project_js_on_ts\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -116,11 +129,26 @@
       <workItem from="1721036250697" duration="6367000" />
       <workItem from="1721245665364" duration="15129000" />
       <workItem from="1721412098517" duration="3129000" />
-      <workItem from="1721587486928" duration="11266000" />
+      <workItem from="1721587486928" duration="13417000" />
+      <workItem from="1721800872501" duration="4973000" />
+      <workItem from="1722005035965" duration="5194000" />
+      <workItem from="1722515831810" duration="4234000" />
+      <workItem from="1722531546800" duration="2557000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/main.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,477 @@
+Index: frontend/src/router.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// import {Expenses} from \"./components/expenses.js\";\r\n// import {Income} from \"./components/income.js\";\r\n// import {CreateExpenses} from \"./components/create-expenses.js\";\r\n// import {EditExpenses} from \"./components/edit-expenses.js\";\r\n// import {CreateIncome} from \"./components/create-income.js\";\r\n// import {EditIncome} from \"./components/edit-income.js\";\r\n// import {Sidebar} from \"./components/sidebar.js\";\r\n// import {Main} from \"./components/main.js\";\r\n// import {IncomeAndExpenses} from \"./components/income-and-expenses.js\";\r\n// import {EditIncomeAndExpenses} from \"./components/edit-income-and-expenses.js\";\r\n// import {CreateIncomeAndExpenses} from \"./components/create-income-and-expenses.js\";\r\n// import {Form} from \"./components/form.js\";\r\n// import {Auth} from \"./services/auth.js\";\r\n//\r\n// export class Router {\r\n//     constructor() {\r\n//\r\n//         this.layoutElement = document.getElementById('content');\r\n//         this.mainContentElement = null;\r\n//         this.titleElement = document.getElementById('title');\r\n//\r\n//         this.routes = [\r\n//             {\r\n//                 route: '#/',\r\n//                 title: 'Главная',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/main.html',\r\n//                 load: () => {\r\n//                     new Main()\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/signup',\r\n//                 title: 'Регистрация',\r\n//                 template: 'templates/registration.html',\r\n//                 load: () => {\r\n//                     new Form('signup');\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/login',\r\n//                 title: 'Авторизация',\r\n//                 template: 'templates/login.html',\r\n//                 load: () => {\r\n//                     new Form('login');\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/expenses',\r\n//                 title: 'Расходы',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/expenses.html',\r\n//                 load: () => {\r\n//                     new Expenses();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/income',\r\n//                 title: 'Доходы',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/income.html',\r\n//                 load: () => {\r\n//                     new Income();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/create-expenses',\r\n//                 title: 'Создать категорию расходов',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/create-expenses.html',\r\n//                 load: () => {\r\n//                     new CreateExpenses();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/edit-expenses',\r\n//                 title: 'Редактировать категорию расходов',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/edit-expenses.html',\r\n//                 load: () => {\r\n//                     new EditExpenses();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/create-income',\r\n//                 title: 'Создать категорию дохода',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/create-income.html',\r\n//                 load: () => {\r\n//                     new CreateIncome();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/edit-income',\r\n//                 title: 'Редактировать категорию дохода',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/edit-income.html',\r\n//                 load: () => {\r\n//                     new EditIncome();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/income-and-expenses',\r\n//                 title: 'Доходы и расходы',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/income-and-expenses.html',\r\n//                 load: () => {\r\n//                     new IncomeAndExpenses();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/edit-income-and-expenses',\r\n//                 title: 'Редактирование дохода/расхода',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/edit-income-and-expenses.html',\r\n//                 load: () => {\r\n//                     new EditIncomeAndExpenses();\r\n//                 }\r\n//             },\r\n//             {\r\n//                 route: '#/create-income-and-expenses',\r\n//                 title: 'Доходы и расходы',\r\n//                 template: 'templates/layout.html',\r\n//                 content: 'templates/create-income-and-expenses.html',\r\n//                 load: () => {\r\n//                     new CreateIncomeAndExpenses();\r\n//                 }\r\n//             },\r\n//         ]\r\n//     }\r\n//\r\n//     async openRoute() {\r\n//         document.body.style.overflow = 'auto'\r\n//         const urlRoute = window.location.hash.split('?')[0];\r\n//         if (urlRoute === '#/logout') {\r\n//             await Auth.logout();\r\n//             window.location.href = '#/login';\r\n//             return;\r\n//         }\r\n//\r\n//         const newRoute = this.routes.find(item => {\r\n//             return item.route === urlRoute;\r\n//         })\r\n//\r\n//         if (!newRoute) {\r\n//             window.location.href = '#/login';\r\n//             return\r\n//         }\r\n//         this.layoutElement.innerHTML = await fetch(newRoute.template).then(response => response.text());\r\n//         if (urlRoute !== '#/login' && urlRoute !== '#/signup' ) {\r\n//             new Sidebar(urlRoute)\r\n//         }\r\n//\r\n//         if (newRoute.content) {\r\n//             this.mainContentElement = document.getElementById('main-content');\r\n//             this.mainContentElement.innerHTML = await fetch(newRoute.content).then(response => response.text());\r\n//         }\r\n//         this.titleElement.innerText = newRoute.title;\r\n//\r\n//         newRoute.load();\r\n//     }\r\n// }\r\n\r\n//continue\r\nimport {Sidebar} from \"./components/sidebar.js\";\r\nimport {Main} from \"./components/main.js\";\r\nimport {IncomeAndExpenses} from \"./components/income-and-expenses.js\";\r\nimport {Form} from \"./components/form.js\";\r\nimport {Auth} from \"./services/auth.js\";\r\nimport {Categories} from \"./components/categories.js\";\r\nimport {CreateEditIncomeAndExpenses} from \"./components/create-edit-income-and-expenses\";\r\nimport {EditCreateCategoryCategory} from \"./components/edit-create-category\";\r\n\r\nexport class Router {\r\n    constructor() {\r\n\r\n        this.layoutElement = document.getElementById('content');\r\n        this.mainContentElement = null;\r\n        this.titleElement = document.getElementById('title');\r\n\r\n        this.routes = [\r\n            {\r\n                route: '#/',\r\n                title: 'Главная',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/main.html',\r\n                load: () => {\r\n                    new Main()\r\n                }\r\n            },\r\n            {\r\n                route: '#/signup',\r\n                title: 'Регистрация',\r\n                template: 'templates/registration.html',\r\n                load: () => {\r\n                    new Form('signup');\r\n                }\r\n            },\r\n            {\r\n                route: '#/login',\r\n                title: 'Авторизация',\r\n                template: 'templates/login.html',\r\n                load: () => {\r\n                    new Form('login');\r\n                }\r\n            },\r\n            {\r\n                route: '#/expenses',\r\n                title: 'Расходы',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/categories.html',\r\n                load: () => {\r\n                    new Categories('expense');\r\n                }\r\n            },\r\n            {\r\n                route: '#/income',\r\n                title: 'Доходы',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/categories.html',\r\n                load: () => {\r\n                    new Categories('income');\r\n                }\r\n            },\r\n            {\r\n                route: '#/create-expense',\r\n                title: 'Создать категорию расходов',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/edit-create-category.html',\r\n                load: () => {\r\n                    new EditCreateCategoryCategory('expense');\r\n                }\r\n            },\r\n            {\r\n                route: '#/edit-expense',\r\n                title: 'Редактировать категорию расходов',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/edit-create-category.html',\r\n                load: () => {\r\n                    new EditCreateCategoryCategory('expense');\r\n                }\r\n            },\r\n            {\r\n                route: '#/create-income',\r\n                title: 'Создать категорию дохода',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/edit-create-category.html',\r\n                load: () => {\r\n                    new EditCreateCategoryCategory('income');\r\n                }\r\n            },\r\n            {\r\n                route: '#/edit-income',\r\n                title: 'Редактировать категорию дохода',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/edit-create-category.html',\r\n                load: () => {\r\n                    new EditCreateCategoryCategory('income');\r\n                }\r\n            },\r\n            {\r\n                route: '#/income-and-expenses',\r\n                title: 'Доходы и расходы',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/income-and-expenses.html',\r\n                load: () => {\r\n                    new IncomeAndExpenses();\r\n                }\r\n            },\r\n            {\r\n                route: '#/edit-income-and-expenses',\r\n                title: 'Редактирование дохода/расхода',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/create-edit-income-and-expenses.html',\r\n                load: () => {\r\n                    new CreateEditIncomeAndExpenses('edit');\r\n                }\r\n            },\r\n            {\r\n                route: '#/create-income-and-expenses',\r\n                title: 'Создание дохода/расхода',\r\n                template: 'templates/layout.html',\r\n                content: 'templates/create-edit-income-and-expenses.html',\r\n                load: () => {\r\n                    new CreateEditIncomeAndExpenses('create');\r\n                }\r\n            },\r\n        ]\r\n    }\r\n\r\n    async openRoute() {\r\n\r\n        document.body.style.overflow = 'auto'\r\n        const urlRoute = window.location.hash.split('?')[0];\r\n        if (urlRoute === '#/logout') {\r\n            await Auth.logout();\r\n            window.location.href = '#/login';\r\n            return;\r\n        }\r\n\r\n        const newRoute = this.routes.find(item => {\r\n            return item.route === urlRoute;\r\n        })\r\n\r\n        if (!newRoute ) {\r\n            window.location.href = '#/login';\r\n            return\r\n        }\r\n        this.layoutElement.innerHTML = await fetch(newRoute.template).then(response => response.text());\r\n\r\n        if (urlRoute !== '#/login' && urlRoute !== '#/signup' ) {\r\n            const accessTokenKey = localStorage.getItem(Auth.accessTokenKey);\r\n            if (!accessTokenKey) {\r\n                window.location.href = '#/login';\r\n            } else {\r\n                new Sidebar(urlRoute)\r\n            }\r\n\r\n        }\r\n\r\n        if (newRoute.content) {\r\n            this.mainContentElement = document.getElementById('main-content');\r\n            this.mainContentElement.innerHTML = await fetch(newRoute.content).then(response => response.text());\r\n        }\r\n        this.titleElement.innerText = newRoute.title;\r\n\r\n        newRoute.load();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/router.js b/frontend/src/router.js
+--- a/frontend/src/router.js	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/frontend/src/router.js	(date 1722005946359)
+@@ -1,167 +1,3 @@
+-// import {Expenses} from "./components/expenses.js";
+-// import {Income} from "./components/income.js";
+-// import {CreateExpenses} from "./components/create-expenses.js";
+-// import {EditExpenses} from "./components/edit-expenses.js";
+-// import {CreateIncome} from "./components/create-income.js";
+-// import {EditIncome} from "./components/edit-income.js";
+-// import {Sidebar} from "./components/sidebar.js";
+-// import {Main} from "./components/main.js";
+-// import {IncomeAndExpenses} from "./components/income-and-expenses.js";
+-// import {EditIncomeAndExpenses} from "./components/edit-income-and-expenses.js";
+-// import {CreateIncomeAndExpenses} from "./components/create-income-and-expenses.js";
+-// import {Form} from "./components/form.js";
+-// import {Auth} from "./services/auth.js";
+-//
+-// export class Router {
+-//     constructor() {
+-//
+-//         this.layoutElement = document.getElementById('content');
+-//         this.mainContentElement = null;
+-//         this.titleElement = document.getElementById('title');
+-//
+-//         this.routes = [
+-//             {
+-//                 route: '#/',
+-//                 title: 'Главная',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/main.html',
+-//                 load: () => {
+-//                     new Main()
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/signup',
+-//                 title: 'Регистрация',
+-//                 template: 'templates/registration.html',
+-//                 load: () => {
+-//                     new Form('signup');
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/login',
+-//                 title: 'Авторизация',
+-//                 template: 'templates/login.html',
+-//                 load: () => {
+-//                     new Form('login');
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/expenses',
+-//                 title: 'Расходы',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/expenses.html',
+-//                 load: () => {
+-//                     new Expenses();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/income',
+-//                 title: 'Доходы',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/income.html',
+-//                 load: () => {
+-//                     new Income();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/create-expenses',
+-//                 title: 'Создать категорию расходов',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/create-expenses.html',
+-//                 load: () => {
+-//                     new CreateExpenses();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/edit-expenses',
+-//                 title: 'Редактировать категорию расходов',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/edit-expenses.html',
+-//                 load: () => {
+-//                     new EditExpenses();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/create-income',
+-//                 title: 'Создать категорию дохода',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/create-income.html',
+-//                 load: () => {
+-//                     new CreateIncome();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/edit-income',
+-//                 title: 'Редактировать категорию дохода',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/edit-income.html',
+-//                 load: () => {
+-//                     new EditIncome();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/income-and-expenses',
+-//                 title: 'Доходы и расходы',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/income-and-expenses.html',
+-//                 load: () => {
+-//                     new IncomeAndExpenses();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/edit-income-and-expenses',
+-//                 title: 'Редактирование дохода/расхода',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/edit-income-and-expenses.html',
+-//                 load: () => {
+-//                     new EditIncomeAndExpenses();
+-//                 }
+-//             },
+-//             {
+-//                 route: '#/create-income-and-expenses',
+-//                 title: 'Доходы и расходы',
+-//                 template: 'templates/layout.html',
+-//                 content: 'templates/create-income-and-expenses.html',
+-//                 load: () => {
+-//                     new CreateIncomeAndExpenses();
+-//                 }
+-//             },
+-//         ]
+-//     }
+-//
+-//     async openRoute() {
+-//         document.body.style.overflow = 'auto'
+-//         const urlRoute = window.location.hash.split('?')[0];
+-//         if (urlRoute === '#/logout') {
+-//             await Auth.logout();
+-//             window.location.href = '#/login';
+-//             return;
+-//         }
+-//
+-//         const newRoute = this.routes.find(item => {
+-//             return item.route === urlRoute;
+-//         })
+-//
+-//         if (!newRoute) {
+-//             window.location.href = '#/login';
+-//             return
+-//         }
+-//         this.layoutElement.innerHTML = await fetch(newRoute.template).then(response => response.text());
+-//         if (urlRoute !== '#/login' && urlRoute !== '#/signup' ) {
+-//             new Sidebar(urlRoute)
+-//         }
+-//
+-//         if (newRoute.content) {
+-//             this.mainContentElement = document.getElementById('main-content');
+-//             this.mainContentElement.innerHTML = await fetch(newRoute.content).then(response => response.text());
+-//         }
+-//         this.titleElement.innerText = newRoute.title;
+-//
+-//         newRoute.load();
+-//     }
+-// }
+-
+-//continue
+ import {Sidebar} from "./components/sidebar.js";
+ import {Main} from "./components/main.js";
+ import {IncomeAndExpenses} from "./components/income-and-expenses.js";
+Index: frontend/src/components/sidebar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Tooltip} from 'bootstrap';\r\nimport {Auth} from \"../services/auth.js\";\r\nimport {CustomHttp} from \"../services/custom-http.js\";\r\nimport config from \"../../config/config.js\";\r\nimport {UpdateBalance} from \"../utils/updateBalance.js\";\r\n\r\nexport class Sidebar {\r\n    _sidebarTemplate = '../templates/sidebar.html';\r\n\r\n    constructor(urlRoute) {\r\n        this.contentsWrapElement = document.getElementById('contents-wrap');\r\n        this.urlRoute = urlRoute;\r\n        this.accordionButtonElement = null;\r\n        this.flushCollapseOneElement = null;\r\n        this.navLinksElements = null;\r\n        this.headerBtnMenuButtonElement = null;\r\n        this.menuMobileElement = null;\r\n        this.parentBalanceElement = null;\r\n        this.balance = null;\r\n        this.balanceElement = null;\r\n        this.editBalanceInput = null;\r\n        this.wrapBalanceElement = null;\r\n        this.fullNameElement = null;\r\n        this.editBalanceInputElement = null;\r\n        this.saveBalanceButtonElement = null;\r\n        this.canselBalanceButtonElement = null;\r\n\r\n\r\n        this.init()\r\n    }\r\n\r\n    async init() {\r\n        const accessTokenKey = localStorage.getItem(Auth.accessTokenKey);\r\n        if (!accessTokenKey) {\r\n            return window.location.href = '#/login';\r\n        }\r\n        try {\r\n            const result = await CustomHttp.request(config.host + '/balance');\r\n            if (result) {\r\n                if (result.error) {\r\n                    throw new Error(result.error);\r\n                }\r\n                this.balance = result.balance;\r\n                this.drawSidebar();\r\n\r\n            }\r\n        } catch (error) {\r\n            return console.log(error)\r\n        }\r\n    }\r\n\r\n    async drawSidebar() {\r\n        const that = this;\r\n        const userInfo = Auth.getUserInfo()\r\n        const sidebar = document.createElement('div');\r\n        sidebar.className = \"col-sm-4 col-md-3 col-xxl-2 d-flex flex-column flex-shrink-0 p-0 bg-white justify-content-between border-end sidebar_wrap\";\r\n        sidebar.setAttribute('id', 'sidebar_wrap');\r\n        sidebar.innerHTML = await fetch(this._sidebarTemplate).then(response => response.text());\r\n        this.contentsWrapElement.insertBefore(sidebar, this.contentsWrapElement.firstChild)\r\n\r\n        this.accordionButtonElement = document.getElementById('accordion-button');\r\n        this.flushCollapseOneElement = document.getElementById('flush-collapseOne');\r\n\r\n        this.headerBtnMenuButtonElement = document.getElementById('header__menu-btn');\r\n        this.menuMobileElement = document.getElementById('sidebar_wrap');\r\n        this.balanceElement = document.getElementById('balance');\r\n        if (this.balanceElement) {\r\n            this.balanceElement.innerText = `${this.balance}$`;\r\n            this.balanceElement.addEventListener('click', function () {\r\n                that.editBalance();\r\n            })\r\n        }\r\n\r\n\r\n        this.fullNameElement = document.getElementById('full-name');\r\n        this.fullNameElement.innerText = `${userInfo.name}`;\r\n\r\n        this.headerBtnMenuButtonElement.addEventListener('click', () => {\r\n            that.headerBtnMenuButtonElement.classList.toggle('active');\r\n            that.menuMobileElement.classList.toggle('active');\r\n            if (that.menuMobileElement.classList.contains('active')) {\r\n                document.body.style.overflow = 'hidden'\r\n            } else {\r\n                document.body.style.overflow = 'auto'\r\n            }\r\n        })\r\n\r\n        if (this.urlRoute === '#/expense'\r\n            || this.urlRoute === '#/income'\r\n            || this.urlRoute === '#/create-expense'\r\n            || this.urlRoute === '#/create-income'\r\n            || this.urlRoute === '#/edit-expense'\r\n            || this.urlRoute === '#/edit-income'\r\n        ) {\r\n            this.accordionButtonElement.classList.remove('collapsed');\r\n            this.flushCollapseOneElement.classList.add('show');\r\n        } else {\r\n            this.accordionButtonElement.classList.add('collapsed');\r\n            this.flushCollapseOneElement.classList.remove('show');\r\n        }\r\n\r\n        this.navLinksElements = document.getElementsByClassName('nav-link');\r\n\r\n        [].forEach.call(that.navLinksElements, function (link) {\r\n\r\n            if (link.getAttribute('href') === that.urlRoute) {\r\n                if (link.getAttribute('meta-name') === 'main') {\r\n                    link.classList.remove('link-dark');\r\n                }\r\n                link.classList.add('active');\r\n            } else {\r\n                if (link.getAttribute('meta-name') === 'main') {\r\n                    link.classList.add('link-dark');\r\n                }\r\n                link.classList.remove('active');\r\n            }\r\n\r\n            if ((that.urlRoute === '#/create-expense' && link.getAttribute('href') === '#/expense')\r\n                || (that.urlRoute === '#/edit-expense' && link.getAttribute('href') === '#/expense')\r\n                || (that.urlRoute === '#/expense' && link.getAttribute('href') === '#/expense')) {\r\n                link.classList.add('active');\r\n            }\r\n            if ((that.urlRoute === '#/create-income' && link.getAttribute('href') === '#/income')\r\n                || (that.urlRoute === '#/edit-income' && link.getAttribute('href') === '#/income')\r\n                || (that.urlRoute === '#/income' && link.getAttribute('href') === '#/income')) {\r\n                link.classList.add('active');\r\n            }\r\n            if ((that.urlRoute === '#/income-and-expenses' && link.getAttribute('href') === '#/income-and-expenses')\r\n                || (that.urlRoute === '#/create-income-and-expenses' && link.getAttribute('href') === '#/income-and-expenses')\r\n                || (that.urlRoute === '#/edit-income-and-expenses' && link.getAttribute('href') === '#/income-and-expenses')) {\r\n                link.classList.add('active');\r\n                link.classList.remove('link-dark')\r\n            }\r\n        });\r\n        [...document.querySelectorAll('[data-bs-toggle=\"tooltip\"]')]\r\n            .forEach(el => new Tooltip(el));\r\n    }\r\n\r\n    async editBalance() {\r\n        const that = this;\r\n        this.wrapBalanceElement = document.getElementById('wrapBalance');\r\n        this.parentBalanceElement = document.getElementById('parentBalance');\r\n        this.editBalanceInputElement = document.createElement('input');\r\n        this.editBalanceInputElement.className = 'form-control';\r\n        this.editBalanceInputElement.setAttribute('type', 'number');\r\n        this.editBalanceInputElement.setAttribute('name', 'editBalanceInput');\r\n        this.editBalanceInputElement.setAttribute('id', 'editBalanceInput');\r\n        this.editBalanceInputElement.setAttribute('patern', 'editBalanceInput');\r\n\r\n        this.editBalanceInputElement.value = await UpdateBalance.getBalance();\r\n\r\n        this.saveBalanceButtonElement = document.createElement('button');\r\n        this.saveBalanceButtonElement.className = 'btn';\r\n        this.saveBalanceButtonElement.setAttribute('id', 'saveBalance');\r\n        const saveImageElement = document.createElement('img');\r\n        saveImageElement.setAttribute('src', 'images/check2.svg');\r\n        saveImageElement.setAttribute('alt', 'подтвердить');\r\n        this.saveBalanceButtonElement.appendChild(saveImageElement);\r\n\r\n        this.canselBalanceButtonElement = document.createElement('button');\r\n        this.canselBalanceButtonElement.className = 'btn';\r\n        this.canselBalanceButtonElement.setAttribute('id', 'canselEditBalance');\r\n        const canselImageElement = document.createElement('img');\r\n        canselImageElement.setAttribute('src', 'images/x.svg');\r\n        canselImageElement.setAttribute('alt', 'отменить');\r\n        this.canselBalanceButtonElement.appendChild(canselImageElement);\r\n        this.parentBalanceElement.style.display = 'none';\r\n        this.wrapBalanceElement.appendChild(this.editBalanceInputElement);\r\n        this.wrapBalanceElement.appendChild(this.saveBalanceButtonElement);\r\n        this.wrapBalanceElement.appendChild(this.canselBalanceButtonElement);\r\n\r\n        this.canselBalanceButtonElement.addEventListener('click', function () {\r\n            that.canselSaveBalance()\r\n        })\r\n\r\n        this.saveBalanceButtonElement.addEventListener('click', () => {\r\n            that.saveBalance();\r\n        })\r\n    }\r\n\r\n    cancelSaveBalance() {\r\n        this.parentBalanceElement.removeAttribute('style')\r\n        this.editBalanceInputElement.remove();\r\n        this.saveBalanceButtonElement.remove();\r\n        this.canselBalanceButtonElement.remove();\r\n    }\r\n\r\n    async saveBalance() {\r\n        this.editBalanceInput = document.getElementById('editBalanceInput');\r\n        try {\r\n            const response = await CustomHttp.request(config.host + '/balance', 'PUT', {\r\n                newBalance: this.editBalanceInput.value\r\n            });\r\n            if (response && response.balance) {\r\n                this.balance = response.balance;\r\n                this.canselSaveBalance();\r\n                this.balanceElement.innerText = `${this.balance}$`;\r\n            }\r\n        } catch (error) {\r\n            throw new Error(error);\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/components/sidebar.js b/frontend/src/components/sidebar.js
+--- a/frontend/src/components/sidebar.js	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/frontend/src/components/sidebar.js	(date 1722008528482)
+@@ -23,7 +23,7 @@
+         this.fullNameElement = null;
+         this.editBalanceInputElement = null;
+         this.saveBalanceButtonElement = null;
+-        this.canselBalanceButtonElement = null;
++        this.cancelBalanceButtonElement = null;
+ 
+ 
+         this.init()
+@@ -136,53 +136,102 @@
+             .forEach(el => new Tooltip(el));
+     }
+ 
++    // async editBalance() {
++    //     const that = this;
++    //     this.wrapBalanceElement = document.getElementById('wrapBalance');
++    //     this.parentBalanceElement = document.getElementById('parentBalance');
++    //     this.editBalanceInputElement = document.createElement('input');
++    //     this.editBalanceInputElement.className = 'form-control';
++    //     this.editBalanceInputElement.setAttribute('type', 'number');
++    //     this.editBalanceInputElement.setAttribute('name', 'editBalanceInput');
++    //     this.editBalanceInputElement.setAttribute('id', 'editBalanceInput');
++    //     this.editBalanceInputElement.setAttribute('patern', 'editBalanceInput');
++    //
++    //     this.editBalanceInputElement.value = await UpdateBalance.getBalance();
++    //
++    //     this.saveBalanceButtonElement = document.createElement('button');
++    //     this.saveBalanceButtonElement.className = 'btn';
++    //     this.saveBalanceButtonElement.setAttribute('id', 'saveBalance');
++    //     const saveImageElement = document.createElement('img');
++    //     saveImageElement.setAttribute('src', 'images/check2.svg');
++    //     saveImageElement.setAttribute('alt', 'подтвердить');
++    //     this.saveBalanceButtonElement.appendChild(saveImageElement);
++    //
++    //     this.cancelBalanceButtonElement = document.createElement('button');
++    //     this.cancelBalanceButtonElement.className = 'btn';
++    //     this.cancelBalanceButtonElement.setAttribute('id', 'cancelEditBalance');
++    //     const cancelImageElement = document.createElement('img');
++    //     cancelImageElement.setAttribute('src', 'images/x.svg');
++    //     cancelImageElement.setAttribute('alt', 'отменить');
++    //     this.cancelBalanceButtonElement.appendChild(cancelImageElement);
++    //     this.parentBalanceElement.style.display = 'none';
++    //     this.wrapBalanceElement.appendChild(this.editBalanceInputElement);
++    //     this.wrapBalanceElement.appendChild(this.saveBalanceButtonElement);
++    //     this.wrapBalanceElement.appendChild(this.cancelBalanceButtonElement);
++    //
++    //     this.cancelBalanceButtonElement.addEventListener('click', function () {
++    //         that.cancelSaveBalance()
++    //     })
++    //
++    //     this.saveBalanceButtonElement.addEventListener('click', () => {
++    //         that.saveBalance();
++    //     })
++    // }
++
+     async editBalance() {
+         const that = this;
+         this.wrapBalanceElement = document.getElementById('wrapBalance');
+         this.parentBalanceElement = document.getElementById('parentBalance');
++
++        if (!this.parentBalanceElement) {
++            console.error('parentBalanceElement does not exist!');
++            return; // Exit the function if element is not found
++        }
++
++        this.parentBalanceElement.style.display = 'none';
+         this.editBalanceInputElement = document.createElement('input');
+         this.editBalanceInputElement.className = 'form-control';
+-        this.editBalanceInputElement.setAttribute('type', 'number');
+-        this.editBalanceInputElement.setAttribute('name', 'editBalanceInput');
+-        this.editBalanceInputElement.setAttribute('id', 'editBalanceInput');
+-        this.editBalanceInputElement.setAttribute('patern', 'editBalanceInput');
++        this.editBalanceInputElement.type = 'number';
++        this.editBalanceInputElement.name = 'editBalanceInput';
++        this.editBalanceInputElement.id = 'editBalanceInput';
+ 
+         this.editBalanceInputElement.value = await UpdateBalance.getBalance();
+ 
+         this.saveBalanceButtonElement = document.createElement('button');
+         this.saveBalanceButtonElement.className = 'btn';
+-        this.saveBalanceButtonElement.setAttribute('id', 'saveBalance');
++        this.saveBalanceButtonElement.id = 'saveBalance';
+         const saveImageElement = document.createElement('img');
+-        saveImageElement.setAttribute('src', 'images/check2.svg');
+-        saveImageElement.setAttribute('alt', 'подтвердить');
++        saveImageElement.src = 'images/check2.svg';
++        saveImageElement.alt = 'подтвердить';
+         this.saveBalanceButtonElement.appendChild(saveImageElement);
+ 
+-        this.canselBalanceButtonElement = document.createElement('button');
+-        this.canselBalanceButtonElement.className = 'btn';
+-        this.canselBalanceButtonElement.setAttribute('id', 'canselEditBalance');
+-        const canselImageElement = document.createElement('img');
+-        canselImageElement.setAttribute('src', 'images/x.svg');
+-        canselImageElement.setAttribute('alt', 'отменить');
+-        this.canselBalanceButtonElement.appendChild(canselImageElement);
+-        this.parentBalanceElement.style.display = 'none';
++        this.cancelBalanceButtonElement = document.createElement('button');
++        this.cancelBalanceButtonElement.className = 'btn';
++        this.cancelBalanceButtonElement.id = 'cancelEditBalance';
++        const cancelImageElement = document.createElement('img');
++        cancelImageElement.src = 'images/x.svg';
++        cancelImageElement.alt = 'отменить';
++        this.cancelBalanceButtonElement.appendChild(cancelImageElement);
++
+         this.wrapBalanceElement.appendChild(this.editBalanceInputElement);
+         this.wrapBalanceElement.appendChild(this.saveBalanceButtonElement);
+-        this.wrapBalanceElement.appendChild(this.canselBalanceButtonElement);
++        this.wrapBalanceElement.appendChild(this.cancelBalanceButtonElement);
+ 
+-        this.canselBalanceButtonElement.addEventListener('click', function () {
+-            that.canselSaveBalance()
+-        })
++        this.cancelBalanceButtonElement.addEventListener('click', function () {
++            that.cancelSaveBalance();
++        });
+ 
+         this.saveBalanceButtonElement.addEventListener('click', () => {
+             that.saveBalance();
+-        })
++        });
+     }
++
+ 
+     cancelSaveBalance() {
+         this.parentBalanceElement.removeAttribute('style')
+         this.editBalanceInputElement.remove();
+         this.saveBalanceButtonElement.remove();
+-        this.canselBalanceButtonElement.remove();
++        this.cancelBalanceButtonElement.remove();
+     }
+ 
+     async saveBalance() {
+@@ -193,7 +242,7 @@
+             });
+             if (response && response.balance) {
+                 this.balance = response.balance;
+-                this.canselSaveBalance();
++                this.cancelSaveBalance();
+                 this.balanceElement.innerText = `${this.balance}$`;
+             }
+         } catch (error) {
+Index: frontend/src/components/income-and-expenses.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {CreateModal} from \"./createModal.js\";\r\nimport {Filter} from \"./filter\";\r\nimport {CustomHttp} from \"../services/custom-http\";\r\nimport config from \"../../config/config\";\r\nimport {UpdateBalance} from \"../utils/updateBalance.js\";\r\n\r\nexport class IncomeAndExpenses {\r\n    constructor() {\r\n        this.tableElement = null;\r\n        this.createButtonElements = null;\r\n        this.idDeletingOperation = null;\r\n        this.data = null;\r\n        this.periodString = null;\r\n        this.init()\r\n    }\r\n\r\n    init() {\r\n        this.periodString = sessionStorage.getItem('queryPeriodString');\r\n        this.tableElement = document.getElementById('table');\r\n\r\n        this.createButtonElements = document.getElementsByName('create-button')\r\n        this.createButtonElements.forEach(button => {\r\n            button.addEventListener('click', () => location.href = '#/create-income-and-expenses')\r\n        })\r\n        if (this.periodString) {\r\n            new Filter(this.drawRows.bind(this), this.periodString);\r\n        } else {\r\n            new Filter(this.drawRows.bind(this));\r\n        }\r\n        new CreateModal('income-and-expenses', this.idDeletingOperation, this.updateTable.bind(this));\r\n    }\r\n\r\n    async updateTable() {\r\n        try {\r\n            const results = await CustomHttp.request(config.host + '/operations?' + this.periodString);\r\n            if (results) {\r\n                if (results.error) {\r\n                    throw new Error(results.error);\r\n                }\r\n                this.drawRows(results)\r\n                const balance = await UpdateBalance.getBalance();\r\n                if (balance) {\r\n                    document.getElementById('balance').innerText = `${balance}$`;\r\n                }\r\n            } else {\r\n                throw new Error('На данный период данных нет');\r\n            }\r\n        } catch (e) {\r\n            console.log(e)\r\n        }\r\n    }\r\n    drawRows(data) {\r\n        this.tableElement.replaceChildren();\r\n        if (data && data.length > 0) {\r\n            data.forEach((operation, index) => {\r\n                this.createTrElement(operation, index)\r\n            })\r\n        }\r\n    }\r\n\r\n    createTrElement(operation, index) {\r\n        const that = this;\r\n        const trElement = document.createElement('tr');\r\n        const thElement = document.createElement('th');\r\n        thElement.setAttribute('scope','row');\r\n        thElement.innerText = index + 1;\r\n        trElement.appendChild(thElement);\r\n\r\n        const tdElementType = document.createElement('td');\r\n        tdElementType.className = operation.type === 'income' ? 'text-success' : 'text-danger';\r\n        tdElementType.innerText = operation.type === 'income' ? 'доход' : 'расход';\r\n        trElement.appendChild(tdElementType);\r\n\r\n        const tdElementCategory = document.createElement('td');\r\n        if (operation.category) {\r\n            tdElementCategory.innerText = operation.category.toLowerCase();\r\n        }\r\n        trElement.appendChild(tdElementCategory);\r\n\r\n        const tdElementAmount = document.createElement('td');\r\n        tdElementAmount.innerText = `${operation.amount}$`\r\n        trElement.appendChild(tdElementAmount);\r\n\r\n        const tdElementDate = document.createElement('td');\r\n        tdElementDate.innerText = operation.date.split('-').reverse().join('.');\r\n        trElement.appendChild(tdElementDate);\r\n\r\n        const tdElementComment = document.createElement('td');\r\n        tdElementComment.innerText = operation.comment;\r\n        trElement.appendChild(tdElementComment);\r\n\r\n        const tdActionsElement = document.createElement('td');\r\n        const wrapActionsElement = document.createElement('div');\r\n        wrapActionsElement.className = 'd-flex align-items-center';\r\n        const buttonDeleteElement = document.createElement('button');\r\n        buttonDeleteElement.className = 'btn  btn_icon me-2';\r\n        buttonDeleteElement.setAttribute('type', 'button');\r\n        buttonDeleteElement.setAttribute('data-bs-toggle', 'modal');\r\n        buttonDeleteElement.setAttribute('data-bs-target', '#staticBackdrop');\r\n        buttonDeleteElement.setAttribute('id', `delete-${operation.id}`);\r\n        const imageDeleteElement = document.createElement('img');\r\n        imageDeleteElement.setAttribute('src', 'images/delete.svg');\r\n        imageDeleteElement.setAttribute('alt', 'корзина');\r\n        buttonDeleteElement.appendChild(imageDeleteElement);\r\n        wrapActionsElement.appendChild(buttonDeleteElement);\r\n        const buttonEditElement = document.createElement('button');\r\n        buttonEditElement.className = 'btn btn_icon';\r\n        buttonEditElement.setAttribute('type', 'button');\r\n        buttonEditElement.setAttribute('id', `edit-${operation.id}`);\r\n        const imageEditElement = document.createElement('img');\r\n        imageEditElement.setAttribute('src', 'images/edit.svg');\r\n        imageEditElement.setAttribute('alt', 'карандаш');\r\n        buttonEditElement.appendChild(imageEditElement);\r\n        wrapActionsElement.appendChild(buttonEditElement);\r\n        tdActionsElement.appendChild(wrapActionsElement);\r\n        trElement.appendChild(tdActionsElement);\r\n\r\n        buttonDeleteElement.addEventListener('click', function () {\r\n            new CreateModal('income-and-expenses', operation.id, that.updateTable.bind(that));\r\n        })\r\n\r\n        buttonEditElement.addEventListener('click', function () {\r\n            location.href = '#/edit-income-and-expenses?id=' + operation.id;\r\n        });\r\n\r\n        this.tableElement.appendChild(trElement);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/components/income-and-expenses.js b/frontend/src/components/income-and-expenses.js
+--- a/frontend/src/components/income-and-expenses.js	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/frontend/src/components/income-and-expenses.js	(date 1722519018444)
+@@ -45,8 +45,8 @@
+             } else {
+                 throw new Error('На данный период данных нет');
+             }
+-        } catch (e) {
+-            console.log(e)
++        } catch (error) {
++            console.log(error)
+         }
+     }
+     drawRows(data) {
+Index: frontend/src/components/edit-create-category.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {UrlManager} from \"../utils/url-manager\";\r\nimport {CustomHttp} from \"../services/custom-http\";\r\nimport config from \"../../config/config\";\r\n\r\nexport class EditCreateCategoryCategory {\r\n    constructor(page) {\r\n        this.routeParams = UrlManager.getQueryParams();\r\n        this.cancelButtonElement = null;\r\n        this.editButtonElement = null;\r\n        this.inputElement = null;\r\n        this.titleElement = null;\r\n        this.page = page;\r\n        this.init();\r\n\r\n    }\r\n\r\n    async init() {\r\n        const that = this;\r\n        this.inputElement = document.getElementById('input');\r\n        this.titleElement = document.getElementById('category-title');\r\n        if (this.routeParams.id) {\r\n            this.titleElement.innerText = this.page === 'income' ? 'Редактирование категории доходов' : 'Редактирование категории расходов';\r\n        } else {\r\n            this.titleElement.innerText = this.page === 'income' ? 'Создание категории доходов' : 'Создание категории расходов';\r\n        }\r\n\r\n        this.cancelButtonElement = document.getElementsByClassName('btn-danger')[0];\r\n        this.editButtonElement = document.getElementsByClassName('btn-success')[0];\r\n        if (this.routeParams.id) {\r\n            this.editButtonElement.innerText = 'Редактировать';\r\n        } else {\r\n            this.editButtonElement.innerText = 'Создать';\r\n        }\r\n        this.cancelButtonElement.addEventListener('click', () => {\r\n            window.location = '#/' + that.page\r\n        });\r\n        this.editButtonElement.addEventListener('click', () => {\r\n            that.saveCategory()\r\n        })\r\n        this.inputElement.addEventListener('change', function () {\r\n            if (this.value) {\r\n                that.editButtonElement.removeAttribute('disabled');\r\n            } else {\r\n                that.editButtonElement.setAttribute('disabled', 'disabled');\r\n            }\r\n        })\r\n\r\n        if (this.routeParams.id) {\r\n            try {\r\n                const result = await CustomHttp.request(config.host + `/categories/${this.page}/` + this.routeParams.id);\r\n                if (result) {\r\n                    if (result.error) {\r\n                        throw new Error(result.error);\r\n                    }\r\n                    this.inputElement.value = result.title;\r\n                }\r\n            } catch (error) {\r\n                console.log(error)\r\n            }\r\n        }\r\n    }\r\n\r\n    async saveCategory() {\r\n        let queryString, method;\r\n\r\n        if (this.routeParams.id) {\r\n            queryString = config.host + `/categories/${this.page}/` + this.routeParams.id;\r\n            method = 'PUT';\r\n        } else {\r\n            queryString = config.host +`/categories/${this.page}`;\r\n            method = 'POST'\r\n        }\r\n        try {\r\n            const result = await CustomHttp.request(queryString, method, {\r\n                title: this.inputElement.value[0].toUpperCase() + this.inputElement.value.slice(1).toLowerCase()\r\n            })\r\n\r\n            if (result) {\r\n                if (result.error) {\r\n                    throw new Error(result.error);\r\n                }\r\n                // Adjust the redirection to explicitly point to the categories list page\r\n                location.href = '#/' + this.page + '/categories';  // Adjust this to your actual URL route for showing categories\r\n            }\r\n\r\n        } catch (error) {\r\n            console.log(error)\r\n        }\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/components/edit-create-category.js b/frontend/src/components/edit-create-category.js
+--- a/frontend/src/components/edit-create-category.js	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/frontend/src/components/edit-create-category.js	(date 1722007584132)
+@@ -79,14 +79,14 @@
+                 if (result.error) {
+                     throw new Error(result.error);
+                 }
+-                // Adjust the redirection to explicitly point to the categories list page
+-                location.href = '#/' + this.page + '/categories';  // Adjust this to your actual URL route for showing categories
++                alert('Category created successfully! Add another?');
++                this.inputElement.value = '';  // Clear the input field for new entry
++                location.href = '#/' + this.page;
++
+             }
+ 
+         } catch (error) {
+             console.log(error)
+         }
+     }
+-
+-
+ }
+\ No newline at end of file
+Index: frontend/src/components/create-edit-income-and-expenses.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {UrlManager} from \"../utils/url-manager.js\";\r\nimport {CustomHttp} from \"../services/custom-http.js\";\r\nimport config from \"../../config/config.js\";\r\nimport {AddOptions} from \"../utils/add-options.js\";\r\n\r\nexport class CreateEditIncomeAndExpenses {\r\n    constructor(action) {\r\n        this.canselButtonElement = null;\r\n        this.saveButtonElement = null;\r\n        this.routeParams = UrlManager.getQueryParams();\r\n        this.selectTypeElement = null;\r\n        this.selectCategoryElement = null;\r\n        this.categories = null;\r\n        this.inputAmountElement = null;\r\n        this.inputDateElement = null;\r\n        this.inputCommentElement = null;\r\n        this.formFields = null;\r\n        this.action = action;\r\n        this.titleElement = null;\r\n        this.buttonSaveOperation = null;\r\n        this.init()\r\n    }\r\n\r\n    async init() {\r\n        const that = this;\r\n        this.buttonSaveOperation = document.getElementById('button-save-operation');\r\n        this.buttonSaveOperation.innerText = this.action === 'edit' ? 'Сохранить' : 'Создать';\r\n        this.titleElement = document.getElementById('title-operation');\r\n        this.titleElement.innerText = this.action === 'edit' ? 'Редактирование дохода/расхода' : 'Создание дохода/расхода';\r\n        this.formFields = document.getElementsByClassName('form-control');\r\n        [].forEach.call(this.formFields, function (field) {\r\n            field.addEventListener('change', () => {\r\n                that.validateFields(Array.from(that.formFields))\r\n            })\r\n        });\r\n        this.selectTypeElement = document.getElementById('type');\r\n        this.selectTypeElement.addEventListener('change', function () {\r\n            that.getCategory(this.value);\r\n        })\r\n        this.selectCategoryElement = document.getElementById('category');\r\n        this.inputAmountElement = document.getElementById('amount');\r\n        this.inputDateElement = document.getElementById('date')\r\n        this.inputCommentElement = document.getElementById('comment');\r\n\r\n        if (this.action === 'edit') {\r\n            if (this.routeParams.id) {\r\n                try {\r\n                    const result = await CustomHttp.request(config.host + '/operations/' + this.routeParams.id);\r\n                    if (result) {\r\n                        if (result.error) {\r\n                            throw new Error(result.error);\r\n                        }\r\n                        await this.getCategory(result.type)\r\n                        this.updateDataForm(result)\r\n                    }\r\n                } catch (e) {\r\n                    console.log(e)\r\n                }\r\n            }\r\n        }\r\n\r\n        this.canselButtonElement = document.getElementsByClassName('btn-danger')[0];\r\n        this.canselButtonElement.addEventListener('click', () => {\r\n            window.location = '#/income-and-expenses' + '?period=true';\r\n        })\r\n        this.saveButtonElement = document.getElementsByClassName('btn-success')[0];\r\n        this.saveButtonElement.addEventListener('click', () => {\r\n            that.saveOperation()\r\n        })\r\n    }\r\n\r\n    async saveOperation() {\r\n        const method = this.action === 'edit' ? 'PUT' : 'POST';\r\n        const queryString = this.action === 'edit' ?\r\n            `${config.host}/operations/${this.routeParams.id}` : `${config.host}/operations`;\r\n        const data = {\r\n            type: this.selectTypeElement.value,\r\n            amount: +this.inputAmountElement.value,\r\n            date: this.inputDateElement.value,\r\n            comment: this.inputCommentElement.value,\r\n            category_id: +this.selectCategoryElement.value\r\n        }\r\n        if (data.type && data.amount && data.date && data.category_id && data.comment) {\r\n            try {\r\n                const result = await CustomHttp.request(queryString, method, data)\r\n                if (result) {\r\n                    if (result.error) {\r\n                        throw new Error(result.message);\r\n                    }\r\n                    location.href = '#/income-and-expenses' + '?period=true';\r\n                } else {\r\n                    throw new Error('Операция не обновлена или не создана');\r\n                }\r\n            } catch (e) {\r\n                console.log(e)\r\n            }\r\n        }\r\n    }\r\n\r\n    updateDataForm (result) {\r\n        this.selectTypeElement.value = result.type;\r\n        this.selectCategoryElement.value = this.categories.filter( el => el.title === result.category )[0].id;\r\n        this.inputAmountElement.value = result.amount;\r\n        this.inputDateElement.value = result.date;\r\n        this.inputCommentElement.value = result.comment;\r\n    }\r\n\r\n    async getCategory(type) {\r\n        try {\r\n            const results = await CustomHttp.request(config.host + `/categories/${type}`);\r\n            if (results) {\r\n                if (results.error) {\r\n                    throw new Error(results.error);\r\n                }\r\n                this.categories = results;\r\n                AddOptions.addOptions(results, 'category')\r\n            } else {\r\n                throw new Error('Нет категорий');\r\n            }\r\n\r\n        } catch (e) {\r\n            console.log(e)\r\n        }\r\n    }\r\n\r\n    validateFields(fields) {\r\n        fields.forEach(field => this.validForm = !!field.value);\r\n        if (this.validForm) {\r\n            this.saveButtonElement.removeAttribute('disabled')\r\n        } else {\r\n            this.saveButtonElement.setAttribute('disabled', 'disabled')\r\n        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/components/create-edit-income-and-expenses.js b/frontend/src/components/create-edit-income-and-expenses.js
+--- a/frontend/src/components/create-edit-income-and-expenses.js	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/frontend/src/components/create-edit-income-and-expenses.js	(date 1722516955069)
+@@ -5,7 +5,7 @@
+ 
+ export class CreateEditIncomeAndExpenses {
+     constructor(action) {
+-        this.canselButtonElement = null;
++        this.cancelButtonElement = null;
+         this.saveButtonElement = null;
+         this.routeParams = UrlManager.getQueryParams();
+         this.selectTypeElement = null;
+@@ -53,14 +53,14 @@
+                         await this.getCategory(result.type)
+                         this.updateDataForm(result)
+                     }
+-                } catch (e) {
+-                    console.log(e)
++                } catch (error) {
++                    console.log(error)
+                 }
+             }
+         }
+ 
+-        this.canselButtonElement = document.getElementsByClassName('btn-danger')[0];
+-        this.canselButtonElement.addEventListener('click', () => {
++        this.cancelButtonElement = document.getElementsByClassName('btn-danger')[0];
++        this.cancelButtonElement.addEventListener('click', () => {
+             window.location = '#/income-and-expenses' + '?period=true';
+         })
+         this.saveButtonElement = document.getElementsByClassName('btn-success')[0];
+@@ -91,8 +91,8 @@
+                 } else {
+                     throw new Error('Операция не обновлена или не создана');
+                 }
+-            } catch (e) {
+-                console.log(e)
++            } catch (error) {
++                console.log(error)
+             }
+         }
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f7d1d83b-ef09-407f-a250-3527b082d642\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/components/categories.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/components/categories.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/components/edit-create-category.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/components/edit-create-category.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/components/main.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/components/main.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/router.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/router.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/frontend/src/utils/add-options.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/frontend/src/utils/add-options.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"package.json\" />\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2fDbHYmSRdXz9ZAsGZF36zywvHz\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"DefaultHtmlFileTemplate\": \"HTML File\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"step3\",\r\n    \"last_opened_file_path\": \"C:/Users/tutep/WS_Projects/Lumincoin-finance-js-master\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\frontend\\static\\images\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\frontend\\templates\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\Project_on_JS_Part_1\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\frontend\\src\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\frontend\\templates\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\frontenddp\" />\r\n      <recent name=\"C:\\Users\\tutep\\WS_Projects\\HWs\\Module_10\\project_js\\src\\components\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f7d1d83b-ef09-407f-a250-3527b082d642\" name=\"Changes\" comment=\"\" />\r\n      <created>1713338508393</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713338508393</updated>\r\n      <workItem from=\"1713338509406\" duration=\"3876000\" />\r\n      <workItem from=\"1713604122440\" duration=\"21053000\" />\r\n      <workItem from=\"1713691099212\" duration=\"1486000\" />\r\n      <workItem from=\"1713812020929\" duration=\"596000\" />\r\n      <workItem from=\"1713954682156\" duration=\"16886000\" />\r\n      <workItem from=\"1714022058817\" duration=\"9114000\" />\r\n      <workItem from=\"1714155612943\" duration=\"608000\" />\r\n      <workItem from=\"1714232319884\" duration=\"12765000\" />\r\n      <workItem from=\"1714588424096\" duration=\"794000\" />\r\n      <workItem from=\"1714723487796\" duration=\"667000\" />\r\n      <workItem from=\"1714813424303\" duration=\"7106000\" />\r\n      <workItem from=\"1715013367928\" duration=\"6122000\" />\r\n      <workItem from=\"1715112319077\" duration=\"6034000\" />\r\n      <workItem from=\"1715198687913\" duration=\"5860000\" />\r\n      <workItem from=\"1715360940370\" duration=\"4780000\" />\r\n      <workItem from=\"1717241064390\" duration=\"2018000\" />\r\n      <workItem from=\"1717260616532\" duration=\"87000\" />\r\n      <workItem from=\"1717454123614\" duration=\"1932000\" />\r\n      <workItem from=\"1717836060742\" duration=\"4713000\" />\r\n      <workItem from=\"1718452247560\" duration=\"4688000\" />\r\n      <workItem from=\"1718648170405\" duration=\"3124000\" />\r\n      <workItem from=\"1718688540966\" duration=\"14227000\" />\r\n      <workItem from=\"1718783555558\" duration=\"1801000\" />\r\n      <workItem from=\"1718876189439\" duration=\"2817000\" />\r\n      <workItem from=\"1719225206558\" duration=\"11428000\" />\r\n      <workItem from=\"1719300410300\" duration=\"5843000\" />\r\n      <workItem from=\"1719837289664\" duration=\"9000\" />\r\n      <workItem from=\"1719837392001\" duration=\"3351000\" />\r\n      <workItem from=\"1719849565614\" duration=\"10116000\" />\r\n      <workItem from=\"1719907532789\" duration=\"170000\" />\r\n      <workItem from=\"1719907945348\" duration=\"21000\" />\r\n      <workItem from=\"1719908223188\" duration=\"456000\" />\r\n      <workItem from=\"1719908692917\" duration=\"539000\" />\r\n      <workItem from=\"1719909309150\" duration=\"891000\" />\r\n      <workItem from=\"1719999188005\" duration=\"5986000\" />\r\n      <workItem from=\"1720724327982\" duration=\"7083000\" />\r\n      <workItem from=\"1721036250697\" duration=\"6367000\" />\r\n      <workItem from=\"1721245665364\" duration=\"15129000\" />\r\n      <workItem from=\"1721412098517\" duration=\"3129000\" />\r\n      <workItem from=\"1721587486928\" duration=\"11266000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cfedffa0cbf2798517fed99c80b78d3e93f587c6)
++++ b/.idea/workspace.xml	(date 1722523407190)
+@@ -6,13 +6,11 @@
+   <component name="ChangeListManager">
+     <list default="true" id="f7d1d83b-ef09-407f-a250-3527b082d642" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/components/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/categories.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/create-edit-income-and-expenses.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/edit-create-category.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/components/edit-income-and-expenses.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/main.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/income-and-expenses.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/frontend/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sidebar.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/add-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/add-options.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,7 +42,7 @@
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "WebServerToolWindowFactoryState": "false",
+     "git-widget-placeholder": "step3",
+-    "last_opened_file_path": "C:/Users/tutep/WS_Projects/Lumincoin-finance-js-master",
++    "last_opened_file_path": "C:/Users/tutep/WS_Projects/HWs/Module_10/project_js",
+     "list.type.of.created.stylesheet": "CSS",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+@@ -116,7 +114,10 @@
+       <workItem from="1721036250697" duration="6367000" />
+       <workItem from="1721245665364" duration="15129000" />
+       <workItem from="1721412098517" duration="3129000" />
+-      <workItem from="1721587486928" duration="11266000" />
++      <workItem from="1721587486928" duration="13417000" />
++      <workItem from="1721800872501" duration="4973000" />
++      <workItem from="1722005035965" duration="5194000" />
++      <workItem from="1722515831810" duration="4234000" />
+     </task>
+     <servers />
+   </component>

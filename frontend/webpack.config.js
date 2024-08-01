@@ -3,39 +3,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/app.js',
-    mode: 'development',
-    output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
-    },
-    devServer: {
-        static: '.dist',
-        compress: true,
-        port: 9000,
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: "./index.html"
-        }),
-        new CopyPlugin({
-            patterns: [
-                { from: "templates", to: "templates" },
-                { from: "static/fonts", to: "fonts" },
-                { from: "static/images", to: "images" },
-            ],
-        }),
-    ],
+    entry: './src/index.ts',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                test: /\.tsx?$/,
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-typescript'
+                    ]
+                },
+                exclude: /node_modules/
             }
         ]
+    }
+
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
     }
 };
