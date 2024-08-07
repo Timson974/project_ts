@@ -17,6 +17,7 @@ export class Main {
         this.messageEmptyData = null;
         this.incomeData = null;
         this.expenseData = null;
+        // this.data = null;
         this.wrapCanvasIncomeElement = null;
         this.wrapCanvasExpenseElement = null;
         this.init();

@@ -8,28 +8,6 @@ export class Auth {
     static refreshTokenKey: string = 'refreshToken';
     static userInfoKey: string = 'userInfo';
 
-    public static async signup(email: string, password: string): Promise<boolean> {
-        const response = await fetch(config.host + '/signup', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
-
-        if (response.status === 200) {
-            const result = await response.json();
-            this.setTokens(result.accessToken, result.refreshToken);
-            this.setUserInfo(result.userInfo);
-            return true;
-        } else {
-            // Обработка ошибок
-            return false;
-        }
-    }
-
-
     public static async processAuthorizeResponse(): Promise<boolean> {
         const refreshToken: string | null = localStorage.getItem(this.refreshTokenKey);
         if (refreshToken) {
