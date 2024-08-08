@@ -4,7 +4,7 @@ import {CustomHttp} from "../services/custom-http";
 import {PageType} from "../types/page.type";
 import {FormFieldsType} from "../types/form-fields.type";
 import {DefaultResponseType} from "../types/responses/default-response.type";
-import {UserInfoType} from "../types/user-info.type";
+import {SignupResponseType} from "../types/responses/signup-response.type";
 import {LoginResponseType} from "../types/responses/login-response.type";
 
 export class Form {
@@ -49,12 +49,12 @@ export class Form {
 
         if (this.page === 'signup') {
             this.fields.unshift({
-                    name: 'fullName',
-                    id: 'fullName',
-                    element: null,
-                    regex: /^[A-ZА-ЯЁ][a-zа-яё]+(\s+[A-ZА-ЯЁ][a-zа-яё]+)(\s+[A-ZА-ЯЁ][a-zа-яё]+)?/,
-                    valid: false
-                })
+                name: 'fullName',
+                id: 'fullName',
+                element: null,
+                regex: /^[A-ZА-ЯЁ][a-zа-яё]+(\s+[A-ZА-ЯЁ][a-zа-яё]+)(\s+[A-ZА-ЯЁ][a-zа-яё]+)?/,
+                valid: false
+            })
             this.fields.push({
                 name: 'rePassword',
                 id: 'rePassword',
@@ -82,7 +82,7 @@ export class Form {
         }
 
 
-        if (this.page === PageType.login ) {
+        if (this.page === PageType.login) {
             this.remCheckElement = document.getElementById('remCheck') as HTMLInputElement;
         }
     }
@@ -105,8 +105,8 @@ export class Form {
                 if (!this.passwordElement.value
                     || !this.rePasswordElement.value
                     || this.passwordElement.value !== this.rePasswordElement.value
-                    || !this.rePasswordElement.value.match(this.fields.filter( el => el.name === 'rePassword')[0].regex)
-                    || !this.passwordElement.value.match(this.fields.filter( el => el.name === 'password')[0].regex)) {
+                    || !this.rePasswordElement.value.match(this.fields.filter(el => el.name === 'rePassword')[0].regex)
+                    || !this.passwordElement.value.match(this.fields.filter(el => el.name === 'password')[0].regex)) {
                     (this.rePasswordElement.parentNode as HTMLElement).style.border = '1px solid red';
                 } else {
                     (this.passwordElement.parentNode as HTMLElement).removeAttribute('style');
@@ -126,59 +126,127 @@ export class Form {
         return isValid
     }
 
+    // 1 st way: uncorrected
+    // private async processForm(): Promise<void> {
+    //     if (this.validateForm()) {
+    //         const email: string | undefined = this.fields.find(item => item.name === 'email')?.element?.value;
+    //         const password: string | undefined = this.fields.find(item => item.name === 'password')?.element?.value;
+    //
+    //         if (this.page === PageType.signup) {
+    //             const name: this.fields.find(item => item.name === 'fullName')?.element?.value.split(' ')[0]
+    //             const lastName: this.fields.find(item => item.name === 'fullName')?.element?.value.split(' ').slice(1).toString().replace(',', ' ')
+    //             const repeatPass: this.fields.find(item => item.name === 'rePassword')?.element?.value
+    //
+    //             try {
+    //                 const result: DefaultResponseType | SignupResponseType = await CustomHttp.request(config.host + '/signup', 'POST', {
+    //                     "name": name,
+    //                     "lastName": lastName,
+    //                     "email": email,
+    //                     "password": password,
+    //                     "passwordRepeat": repeatPass
+    //                 })
+    //                 if (result) {
+    //                     console.log(result)
+    //                     if ((result as DefaultResponseType).error) {
+    //                         throw new Error((result as DefaultResponseType).message);
+    //                     }
+    //                     location.href = '#/' + PageType.login;
+    //                 }
+    //             } catch (error) {
+    //                 console.log(error)
+    //             }
+    //         } else if (this.page === PageType.login) {
+    //             if (this.remCheckElement) this.remCheck = this.remCheckElement.checked;
+    //
+    //             try {
+    //                 const result: DefaultResponseType | LoginResponseType = await CustomHttp.request(config.host + '/login', 'POST', {
+    //                     email: email,
+    //                     password: password,
+    //                     rememberMe: this.remCheck
+    //                 })
+    //
+    //                 if (result) {
+    //                     if ((result as DefaultResponseType).error) {
+    //                         throw new Error((result as DefaultResponseType).message);
+    //                     }
+    //
+    //                     Auth.setTokens((result as LoginResponseType).tokens.accessToken, (result as LoginResponseType).tokens.refreshToken);
+    //                     Auth.setUserInfo({
+    //                         name: (result as LoginResponseType).user.name,
+    //                         lastName: (result as LoginResponseType).user.lastName,
+    //                         userId: (result as LoginResponseType).user.id!,
+    //                         email: email as string
+    //                     })
+    //                     location.href = '#/';
+    //                 }
+    //             } catch (error) {
+    //                 console.log(error)
+    //                 return
+    //             }
+    //         }
+    //     }
+    // }
+    //2 nd way: corrected
     private async processForm(): Promise<void> {
         if (this.validateForm()) {
             const email: string | undefined = this.fields.find(item => item.name === 'email')?.element?.value;
             const password: string | undefined = this.fields.find(item => item.name === 'password')?.element?.value;
 
-            if (this.page === PageType.login) {
-                if (this.remCheckElement) this.remCheck = this.remCheckElement.checked;
-            }
             if (this.page === PageType.signup) {
+                const fullNameField = this.fields.find(item => item.name === 'fullName')?.element?.value;
+                const name = fullNameField ? fullNameField.split(' ')[0] : '';
+                const lastName = fullNameField ? fullNameField.split(' ').slice(1).join(' ') : '';
+                const repeatPass = this.fields.find(item => item.name === 'rePassword')?.element?.value;
+
                 try {
-                    const result: DefaultResponseType | UserInfoType = await CustomHttp.request(config.host + '/signup', 'POST', {
-                        name: this.fields.find(item => item.name === 'fullName')?.element?.value.split(' ')[0],
-                        lastName: this.fields.find(item => item.name === 'fullName')?.element?.value.split(' ').slice(1).toString().replace(',', ' '),
-                        email: email,
-                        password: password,
-                        passwordRepeat: this.fields.find(item => item.name === 'rePassword')?.element?.value
-                    })
-                    if(result) {
+                    const result: DefaultResponseType | SignupResponseType = await CustomHttp.request(config.host + '/signup', 'POST', {
+                        name,
+                        lastName,
+                        email,
+                        password,
+                        passwordRepeat: repeatPass
+                    });
+                    if (result) {
+                        console.log(result);
                         if ((result as DefaultResponseType).error) {
                             throw new Error((result as DefaultResponseType).message);
                         }
+                        location.href = '#/' + PageType.login;
                     }
                 } catch (error) {
-                    console.log(error)
-                    return
+                    console.log(error);
                 }
-            }
+            } else if (this.page === PageType.login) {
+                const remCheck = this.remCheckElement ? this.remCheckElement.checked : false;
 
-            try {
-                const result: DefaultResponseType | LoginResponseType= await CustomHttp.request(config.host + '/login', 'POST', {
-                    email: email,
-                    password: password,
-                    rememberMe: this.remCheck
-                })
+                try {
+                    const result: DefaultResponseType | LoginResponseType = await CustomHttp.request(config.host + '/login', 'POST', {
+                        email,
+                        password,
+                        rememberMe: remCheck
+                    });
 
-                if (result) {
-                    if ((result as DefaultResponseType).error) {
-                        throw new Error((result as DefaultResponseType).message);
+                    if (result) {
+                        if ((result as DefaultResponseType).error) {
+                            throw new Error((result as DefaultResponseType).message);
+                        }
+
+                        Auth.setTokens((result as LoginResponseType).tokens.accessToken, (result as LoginResponseType).tokens.refreshToken);
+                        Auth.setUserInfo({
+                            name: (result as LoginResponseType).user.name,
+                            lastName: (result as LoginResponseType).user.lastName,
+                            userId: (result as LoginResponseType).user.id!,
+                            email: email as string
+                        });
+                        location.href = '#/';
                     }
-
-                    Auth.setTokens((result as LoginResponseType).tokens.accessToken, (result as LoginResponseType).tokens.refreshToken);
-                    Auth.setUserInfo({
-                        name: (result as LoginResponseType).user.name,
-                        lastName: (result as LoginResponseType).user.lastName,
-                        userId: (result as LoginResponseType).user.id!,
-                        email: email as string
-                    })
-                    location.href = '#/';
+                } catch (error) {
+                    console.log(error);
+                    return;
                 }
-            } catch (error) {
-                console.log(error)
             }
         }
     }
+
 }
 

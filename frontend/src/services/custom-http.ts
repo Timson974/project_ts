@@ -19,6 +19,7 @@ export class CustomHttp {
         }
 
         const response: Response = await fetch(url, params);
+        console.log(response)
 
         if (response.status < 200 || response.status >= 300) {
             if (response.status === 401) {
